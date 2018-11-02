@@ -1,6 +1,5 @@
 # 豆瓣电影
 
-* **douban.py**：使用Requests爬取Top250电影
 ## douban
 使用 **Requests** 来爬取Top250电影，非异步爬取
 
