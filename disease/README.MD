@@ -6,6 +6,7 @@
 1、scrapy-redis来爬取
 2、Mysql和csv来存取数据
 3、使用crawlSpider
+4、config是文件配置密码
 
 问题：
 1、lpush name_start_urls 后面的url必须是编码，不能存在中文。

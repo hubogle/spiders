@@ -9,7 +9,7 @@ from scrapy.loader import ItemLoader
 class NameSpider(RedisCrawlSpider):
     name = 'name'
     allowed_domains = ['www.a-hospital.com']
-    redis_key = 'name:start_urls'
+    redis_key = 'name:start_urls'   # 开始：http://www.a-hospital.com/w/%E7%96%BE%E7%97%85
     rules = (
         Rule(LinkExtractor(allow=r'/w/', restrict_xpaths='//*[@id="bodyContent"]/p[5]')),
         Rule(LinkExtractor(allow=r'/w/', restrict_xpaths='//*[@id="bodyContent"]/*[7]/li'), callback='parse_item'),

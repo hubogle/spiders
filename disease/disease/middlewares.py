@@ -4,9 +4,10 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+import requests
 
 from scrapy import signals
-
+from faker import Faker
 
 class DiseaseSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -101,3 +102,21 @@ class DiseaseDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class UserAgent_Middleware():
+    def __init__(self):
+        self.faker = Faker(locale='zh_CN')
+
+    def process_request(self, request, spider):
+        request.headers['User-Agent'] = self.faker.chrome()
+
+
+class Proxy_Middleware():
+    def process_request(self, request, spider):
+        try:
+            daili_url = 'http://123.207.24.87:8001/http/1/100'
+            response = requests.get(daili_url).json()
+            request.meta['proxy'] = response[0]
+        except requests.exceptions.RequestException:
+            spider.logger.error('代理获取失败')

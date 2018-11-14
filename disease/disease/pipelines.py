@@ -18,10 +18,11 @@ class DiseasePipeline(object):
 
     def process_item(self, item, spider):
         writer = csv.writer(self.file)
-        writer.writerow((item['name'], item['text']))
+        data = dict(item)
+        writer.writerow((data.get('name', 'null'), data.get('text', 'null')))
         return item
 
-    def close_spider(self, soider):
+    def close_spider(self, spider):
         self.file.close()
 
 
