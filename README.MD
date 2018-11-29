@@ -1,4 +1,4 @@
-# Python SPider
+# Python Spider
 
 ***
 
@@ -6,8 +6,12 @@
 
 ***
 
-* 抖音爬虫
-* QQ音乐爬虫
-* 豆瓣电影
-* 有道词典网页版
-* 医学百科
+* 抖音爬虫--douyin
+* QQ音乐爬虫--qq_music
+* 豆瓣电影--douban
+* 有道词典网页版--youdao
+* 医学百科--disease
+* 京东抢购--jingdong
+* 夫币--websocket爬虫
+* 代理池--mimvp
+* Cookie池--Cookies

@@ -8,6 +8,19 @@ import csv
 import pymysql
 
 
+class HaodfPipline:
+    def __init__(self):
+        self.file = open('../data/name.txt', 'a', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        for i in item['name']:
+            self.file.write(i+'\n')
+        return item
+
+    def close_spider(self, spider):
+        self.file.close()
+
+
 class DiseasePipeline(object):
     """
     保存CSV文件

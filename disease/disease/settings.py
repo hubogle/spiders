@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
@@ -54,7 +54,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'disease.middlewares.UserAgent_Middleware': 543,
-    'disease.middlewares.Proxy_Middleware': 543,
+    # 'disease.middlewares.Proxy_Middleware': 543,
 }
 
 # Enable or disable extensions
@@ -65,9 +65,11 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
 ITEM_PIPELINES = {
-    'disease.pipelines.DiseasePipeline': 300,
-    'disease.pipelines.NamePipeline': 300,
+    # 'disease.pipelines.DiseasePipeline': 300,
+    # 'disease.pipelines.NamePipeline': 300,
+    'disease.pipelines.HaodfPipline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,13 +92,15 @@ ITEM_PIPELINES = {
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# LOG_LEVEL = 'INFO'
 LOG_FILE = '../data/disease.log'
 from .config import *
 
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-REDIS_URL = REDIS_URL_BASE
-SCHEDULER_PERSIST = True
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# REDIS_URL = REDIS_URL_BASE
+# SCHEDULER_PERSIST = True
 
 MYSQL_HOST = MYSQL_HOST_BASE
 MYSQL_DATABASES = 'disease'

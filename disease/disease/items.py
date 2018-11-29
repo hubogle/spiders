@@ -16,3 +16,13 @@ class DiseaseItem(Item):
         input_processor=MapCompose(lambda x: x.strip()),
         output_processor=Join()
     )
+
+
+class DaYiItem(Item):
+    table = 'dayi'
+    name = Field()
+    text = Field()
+
+
+class HaodfItem(Item):
+    name = Field()

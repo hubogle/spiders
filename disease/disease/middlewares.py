@@ -8,6 +8,8 @@ import requests
 
 from scrapy import signals
 from faker import Faker
+import random
+
 
 class DiseaseSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -115,8 +117,9 @@ class UserAgent_Middleware():
 class Proxy_Middleware():
     def process_request(self, request, spider):
         try:
-            daili_url = 'http://123.207.24.87:8001/http/1/100'
+            daili_url = 'http://123.207.24.87:8001/https/1/90'
             response = requests.get(daili_url).json()
             request.meta['proxy'] = response[0]
         except requests.exceptions.RequestException:
+            print('代理获取失败')
             spider.logger.error('代理获取失败')

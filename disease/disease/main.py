@@ -4,4 +4,4 @@
 # Date  : 2018/11/11
 from scrapy.cmdline import execute
 
-execute('scrapy crawl name'.split())
+execute('scrapy crawl jk'.split())
